@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 function SkillsSection({ animationTrigger }) {
   const skills = [
     "Procreate",
@@ -22,12 +23,19 @@ function SkillsSection({ animationTrigger }) {
           animationTrigger ? "opacity-100" : "opacity-0"
         } `}
       >
-        {sortedSkills.map((skill) => (
-          <li className="font-sec text-xl mb-3 ">{skill}</li>
+        {sortedSkills.map((skill, index) => (
+          <li
+            className="font-sec text-xl mb-3 text-gray-800"
+            key={`${skill}+${index} `}
+          >
+            {skill}
+          </li>
         ))}
       </ul>
     </div>
   );
 }
-
+SkillsSection.propTypes = {
+  animationTrigger: PropTypes.bool.isRequired,
+};
 export default SkillsSection;

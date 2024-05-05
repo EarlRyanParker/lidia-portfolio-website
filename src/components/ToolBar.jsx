@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 
 function ToolBar({ state, dispatch, cwComponentLoaded }) {
@@ -11,7 +11,7 @@ function ToolBar({ state, dispatch, cwComponentLoaded }) {
 
   return (
     <div
-      className={`px-5 lg:px-0 flex justify-between py-3 items-end mb-3 transition-opacity delay-[200ms] duration-[1500ms] ${
+      className={`px-5 lg:px-0 flex justify-between mt-10 items-start mb-3 transition-opacity delay-[200ms] duration-[1500ms] ${
         cwComponentLoaded ? "opacity-100" : "opacity-0"
       }`}
     >
@@ -65,5 +65,10 @@ function ToolBar({ state, dispatch, cwComponentLoaded }) {
     </div>
   );
 }
+ToolBar.propTypes = {
+  state: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  cwComponentLoaded: PropTypes.bool.isRequired,
+};
 
 export default ToolBar;

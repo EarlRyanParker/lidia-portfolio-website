@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import ExperienceItem from "../components/ExperienceItem";
 function ExperienceSection({ experiences, animationTrigger }) {
   return (
@@ -14,7 +15,6 @@ function ExperienceSection({ experiences, animationTrigger }) {
         <ExperienceItem
           key={index}
           company={experience.company}
-          location={experience.location}
           role={experience.role}
           date={experience.date}
           description={experience.description}
@@ -26,4 +26,15 @@ function ExperienceSection({ experiences, animationTrigger }) {
   );
 }
 
+ExperienceSection.propTypes = {
+  experiences: PropTypes.arrayOf(
+    PropTypes.shape({
+      company: PropTypes.string.isRequired,
+      role: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  animationTrigger: PropTypes.bool.isRequired,
+};
 export default ExperienceSection;

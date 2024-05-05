@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -86,6 +87,13 @@ const ImageCarousel = ({
       </div>
     </div>
   );
+};
+ImageCarousel.propTypes = {
+  displayArtworks: PropTypes.array.isRequired,
+  displayArtworksLength: PropTypes.number.isRequired,
+  basePath: PropTypes.string.isRequired,
+  currentIndex: PropTypes.number.isRequired,
+  setCurrentIndex: PropTypes.func.isRequired,
 };
 
 export default ImageCarousel;

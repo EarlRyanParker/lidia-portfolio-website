@@ -1,4 +1,6 @@
+/* eslint-disable react/prop-types */
 import { NavLink } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function Footer({ pageLoaded = true }) {
   return (
@@ -19,7 +21,7 @@ function Footer({ pageLoaded = true }) {
             to="/creative-works"
             className="font-sec text-gray-600 text-md hover:text-[#B18FCF] transition-all delay-150"
           >
-            Creative Work's
+            Creative Works
           </NavLink>
           {/* <NavLink
           to="/technical-works"
@@ -44,10 +46,12 @@ function Footer({ pageLoaded = true }) {
         <div className=" flex gap-x-14 mt-8 justify-center">
           <div className="group flex flex-col items-center transition-transform duration-500 transform hover:-translate-y-2 cursor-pointer">
             <a href="https://depop.app.link/EMVXSBc2pIb">
-              <img
+              <LazyLoadImage
                 src="/src/assets/noun-shopping-bag.svg"
                 className="w-10 h-10 "
-              ></img>
+                effect="blur"
+                placeholderSrc="/src/assets/noun-shopping-bag.svg"
+              ></LazyLoadImage>
             </a>
             <p className="text-sec text-sm scale-0 transition-all duration-[500ms] group-hover:scale-100 ">
               Depop
@@ -56,11 +60,13 @@ function Footer({ pageLoaded = true }) {
 
           <div className="group flex flex-col items-center transition-transform duration-500 transform hover:-translate-y-2 cursor-pointer">
             <a href="https://www.instagram.com/lidia.christine_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
-              <img
+              <LazyLoadImage
                 src="/src/assets/noun-instagram.svg"
                 hrc="https://www.instagram.com/lidia.christine_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 className="w-8 h-8 "
-              ></img>
+                effect="blur"
+                placeholderSrc="/src/assets/noun-instagram.svg"
+              ></LazyLoadImage>
             </a>
 
             <p className="text-sec text-sm scale-0 transition-all duration-[500ms] group-hover:scale-100 ">

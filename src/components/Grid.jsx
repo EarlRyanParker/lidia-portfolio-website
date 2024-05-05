@@ -1,5 +1,5 @@
+import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
-
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Link, useOutletContext } from "react-router-dom";
@@ -12,7 +12,7 @@ function Grid({
   cwComponentLoaded,
   setCWComponentLoaded,
 }) {
-  const [state, dispatch] = useOutletContext();
+  const [state] = useOutletContext();
   const [imgRows, setImgRows] = useState([[], [], []]);
 
   function convertArrayToGridFormat(images) {
@@ -103,7 +103,7 @@ function Grid({
           {imgRows[1].map((image, index) => (
             <Link
               key={image.src}
-              // to={`/${basePath}/gallery/${getImgId(displayArtworks.src)}`}
+              to={`/${basePath}/gallery/${getImgId(image.src)}`}
             >
               <LazyLoadImage
                 className="mb-8 lg:mb-5 shadow-md cursor-pointer hover:scale-105 transition-all delay-75 hover:shadow-lg"
@@ -120,7 +120,7 @@ function Grid({
           {imgRows[2].map((image, index) => (
             <Link
               key={image.src}
-              // to={`/${basePath}/gallery/${getImgId(displayArtworks.src)}`}
+              to={`/${basePath}/gallery/${getImgId(image.src)}`}
             >
               <LazyLoadImage
                 className="mb-8 lg:mb-5 shadow-md cursor-pointer hover:scale-105 transition-all delay-75 hover:shadow-lg"
@@ -137,5 +137,14 @@ function Grid({
     </div>
   );
 }
+
+Grid.propTypes = {
+  originalArtworks: PropTypes.array.isRequired,
+  displayArtworks: PropTypes.array.isRequired,
+  setDisplayArtworks: PropTypes.func.isRequired,
+  basePath: PropTypes.string.isRequired,
+  cwComponentLoaded: PropTypes.bool.isRequired,
+  setCWComponentLoaded: PropTypes.func.isRequired,
+};
 
 export default Grid;

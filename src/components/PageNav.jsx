@@ -13,7 +13,7 @@ function PageNav() {
     setActive(true);
   };
 
-  const handleLinkExit = (link) => {
+  const handleLinkExit = () => {
     setHoveredLink(null);
     setActive(false);
   };
@@ -73,7 +73,7 @@ function PageNav() {
               onMouseEnter={() => handleLinkEnter("CREATIVE")}
               onMouseLeave={() => handleLinkExit(null)}
             >
-              Creative Work's
+              Creative Works
             </NavLink>
             {/* <NavLink
               to="/technical-works"

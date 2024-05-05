@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function SummarySection({ animationTrigger }) {
   return (
     <div className="mb-10 lg:max-w-[800px]">
@@ -9,7 +11,7 @@ function SummarySection({ animationTrigger }) {
         Summary
       </h1>
       <p
-        className={`mx-5 text-sec text-lg lg:max-w-[800px] mb-10 transition-opacity delay-[700ms] duration-[1000ms] ${
+        className={`mx-5 font-sec text-xl lg:max-w-[800px] mb-10 transition-opacity delay-[700ms] duration-[1000ms] ${
           animationTrigger ? "opacity-100" : "opacity-0"
         } `}
       >
@@ -26,5 +28,9 @@ function SummarySection({ animationTrigger }) {
     </div>
   );
 }
+
+SummarySection.propTypes = {
+  animationTrigger: PropTypes.bool.isRequired,
+};
 
 export default SummarySection;

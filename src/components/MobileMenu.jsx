@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -45,7 +46,7 @@ function MobileMenu({ isMobileMenuActive, setIsMobileMenuActive }) {
           }}`}
           onClick={() => setIsMobileMenuActive(false)}
         >
-          Creative Work's
+          Creative Works
         </NavLink>
         <NavLink
           to="/cv"
@@ -73,5 +74,10 @@ function MobileMenu({ isMobileMenuActive, setIsMobileMenuActive }) {
     )
   );
 }
+
+MobileMenu.propTypes = {
+  isMobileMenuActive: PropTypes.bool.isRequired,
+  setIsMobileMenuActive: PropTypes.func.isRequired,
+};
 
 export default MobileMenu;

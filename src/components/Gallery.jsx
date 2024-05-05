@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import PropTypes from "prop-types";
 import { useParams, useOutletContext } from "react-router-dom";
 import ImageCarousel from "./ImageCarousel";
 import { useEffect, useState } from "react";
@@ -13,7 +14,7 @@ function Gallery({
 }) {
   const { id } = useParams();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [state, dispatch] = useOutletContext();
+  const [state] = useOutletContext();
   const displayArtworksLength = displayArtworks.length;
 
   function filterDisplayImages(images, filters) {
@@ -88,4 +89,12 @@ function Gallery({
   );
 }
 
+Gallery.propTypes = {
+  originalArtworks: PropTypes.array.isRequired,
+  displayArtworks: PropTypes.array.isRequired,
+  setDisplayArtworks: PropTypes.func.isRequired,
+  basePath: PropTypes.string.isRequired,
+  imgFolderName: PropTypes.string.isRequired,
+  setCWComponentLoaded: PropTypes.func.isRequired,
+};
 export default Gallery;

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 function EducationSection({ animationTrigger }) {
   return (
     <div className="mb-10">
@@ -29,4 +30,7 @@ function EducationSection({ animationTrigger }) {
   );
 }
 
+EducationSection.propTypes = {
+  animationTrigger: PropTypes.bool.isRequired,
+};
 export default EducationSection;

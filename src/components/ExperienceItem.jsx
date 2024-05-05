@@ -1,6 +1,6 @@
+import PropTypes from "prop-types";
 function ExperienceItem({
   company,
-  location,
   role,
   date,
   description,
@@ -22,5 +22,13 @@ function ExperienceItem({
     </div>
   );
 }
+
+ExperienceItem.propTypes = {
+  company: PropTypes.string.isRequired,
+  role: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  animationTrigger: PropTypes.bool.isRequired,
+};
 
 export default ExperienceItem;
